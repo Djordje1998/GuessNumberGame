@@ -32,9 +32,9 @@ document.querySelector(".check").addEventListener("click", function () {
   } else if (secretNumber !== guess) {
     displayMessage(secretNumber < guess ? "📈 Too high!" : "📉 Too low!");
     score--;
-    if (score <= 0) {
+    if (score === 0) {
       displayMessage("💥 You lost the game!");
-      score = 0;
+      document.querySelector(".check").disabled = true;
     }
     document.querySelector(".score").textContent = score;
   }
@@ -49,4 +49,5 @@ document.querySelector(".again").addEventListener("click", function () {
   document.querySelector(".guess").value = "";
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".check").disabled = false;
 });
